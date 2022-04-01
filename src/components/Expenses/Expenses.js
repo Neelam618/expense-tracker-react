@@ -20,11 +20,12 @@ function Expenses(props) {
             <Card className='expenses'>
                 <ExpenseFilter selectedYear={selectedYear} onYearSelect={onYearSelect} />
                 {
-                    filteredExpenses.map((expense) => {
-                        return (
-                            <ExpenseItem key={expense.id} title={expense.title} date={expense.date} amount={expense.amount} />
-                        )
-                    })
+                    filteredExpenses.length === 0 ? <p style={{ color: 'white', textAlign: 'center' }}>No Expenses found</p> :
+                        filteredExpenses.map((expense) => {
+                            return (
+                                <ExpenseItem key={expense.id} title={expense.title} date={expense.date} amount={expense.amount} />
+                            )
+                        })
                 }
             </Card>
         </>
