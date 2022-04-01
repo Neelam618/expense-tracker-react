@@ -15,8 +15,13 @@ function Expenses(props) {
         <>
             <Card className='expenses'>
                 <ExpenseFilter selectedYear={selectedYear} onYearSelect={onYearSelect} />
-                <ExpenseItem title={props.items[0].title} date={props.items[0].date} amount={props.items[0].amount} />
-                <ExpenseItem title={props.items[1].title} date={props.items[1].date} amount={props.items[1].amount} />
+                {
+                    props.items.map((expense) => {
+                        return (
+                            <ExpenseItem key={expense.id} title={expense.title} date={expense.date} amount={expense.amount} />
+                        )
+                    })
+                }
             </Card>
         </>
     )
