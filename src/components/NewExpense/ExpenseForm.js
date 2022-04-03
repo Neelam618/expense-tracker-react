@@ -59,7 +59,7 @@ function ExpenseForm(props) {
         event.preventDefault()
         const expenseData = {
             title: title,
-            amount: amount,
+            amount: +amount,      //+ to enforce type conversion to string
             date: new Date(date)
         }
         props.onSaveExpenseData(expenseData)
